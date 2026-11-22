@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIP Birthday Invitation | Jan 30, 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-cyberpunk">
+  <!-- Dynamic Animated Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Top Control Bar: Theme, Background & A-Z Language Switcher -->
+  <header class="control-bar glass-panel">
+    <div class="control-group">
+      <label for="theme-select" data-i18n="themeLabel">Theme</label>
+      <select id="theme-select" class="custom-select">
+        <option value="theme-cyberpunk">Cyberpunk Neon</option>
+        <option value="theme-royal">Royal Gold</option>
+        <option value="theme-emerald">Emerald Matrix</option>
+        <option value="theme-sunset">Synthwave Sunset</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="bg-select" data-i18n="bgLabel">Background</label>
+      <select id="bg-select" class="custom-select">
+        <option value="starfield">3D Warp Starfield</option>
+        <option value="cybergrid">Neon Cyber Grid</option>
+        <option value="aurora">Cosmic Aurora</option>
+        <option value="particles">Floating Party Orbs</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="lang-select" data-i18n="langLabel">Language (A–Z)</label>
+      <select id="lang-select" class="custom-select"></select>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-card glass-panel">
+      <div class="badge pulse-glow" data-i18n="vipBadge">★ EXCLUSIVE VIP PASS ★</div>
+      <h1 class="glitch-title" data-text="BIRTHDAY CELEBRATION" data-i18n="heroTitle">BIRTHDAY CELEBRATION</h1>
+      <p class="subtitle typing-effect" data-i18n="heroSubtitle">You are cordially invited to an unforgettable celebration!</p>
+
+      <!-- Live Countdown -->
+      <div class="countdown-wrapper">
+        <div class="countdown-box">
+          <span id="days" class="count-num">00</span>
+          <span class="count-label" data-i18n="days">DAYS</span>
+        </div>
+        <div class="countdown-box">
+          <span id="hours" class="count-num">00</span>
+          <span class="count-label" data-i18n="hours">HOURS</span>
+        </div>
+        <div class="countdown-box">
+          <span id="minutes" class="count-num">00</span>
+          <span class="count-label" data-i18n="minutes">MINUTES</span>
+        </div>
+        <div class="countdown-box">
+          <span id="seconds" class="count-num">00</span>
+          <span class="count-label" data-i18n="seconds">SECONDS</span>
+        </div>
+      </div>
+
+      <!-- Date, Time & Venue Details -->
+      <div class="event-details">
+        <div class="detail-item">
+          <span class="icon">📅</span>
+          <div>
+            <strong data-i18n="dateLabel">DATE & TIME</strong>
+            <p>January 30, 2027 • 08:00 AM</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="icon">📍</span>
+          <div>
+            <strong data-i18n="locLabel">LOCATION</strong>
+            <p>Mall Ciputra Cibubur, Citra Gran</p>
+            <a href="https://maps.google.com/?q=Mall+Ciputra+Cibubur,+Citra+Gran" target="_blank" rel="noopener" class="map-link" data-i18n="openMap">Open in Google Maps →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Arcade Zone -->
+    <section class="arcade-section glass-panel">
+      <div class="section-header">
+        <h2 class="neon-text" data-i18n="arcadeTitle">PARTY ARCADE ZONE</h2>
+        <p data-i18n="arcadeDesc">Warm up your reflexes before the party begins!</p>
+      </div>
+
+      <div class="game-tabs">
+        <button class="tab-btn active btn-animate" data-game="dash">Geometry Dash Runner</button>
+        <button class="tab-btn btn-animate" data-game="snake">Neon Snake.io</button>
+      </div>
+
+      <!-- Geometry Dash Canvas -->
+      <div id="dash-container" class="game-box active">
+        <div class="game-hud">
+          <span>Score: <strong id="dash-score">0</strong></span>
+          <span>Best: <strong id="dash-best">0</strong></span>
+        </div>
+        <canvas id="dash-canvas" width="700" height="240"></canvas>
+        <div class="game-controls">
+          <button id="dash-start" class="action-btn btn-animate" data-i18n="playBtn">▶ Start / Jump (Space or Tap)</button>
+        </div>
+      </div>
+
+      <!-- Snake.io Canvas -->
+      <div id="snake-container" class="game-box">
+        <div class="game-hud">
+          <span>Score: <strong id="snake-score">0</strong></span>
+          <span>Best: <strong id="snake-best">0</strong></span>
+        </div>
+        <canvas id="snake-canvas" width="700" height="320"></canvas>
+        <div class="mobile-dpad">
+          <button class="dpad-btn" data-dir="UP">▲</button>
+          <div class="dpad-row">
+            <button class="dpad-btn" data-dir="LEFT">◀</button>
+            <button class="dpad-btn" data-dir="DOWN">▼</button>
+            <button class="dpad-btn" data-dir="RIGHT">▶</button>
+          </div>
+        </div>
+        <div class="game-controls">
+          <button id="snake-start" class="action-btn btn-animate" data-i18n="startSnakeBtn">▶ Start Snake (Arrow Keys / WASD)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP & Notes Section -->
+    <section class="rsvp-section glass-panel">
+      <h2 class="neon-text" data-i18n="rsvpTitle">VIP RSVP CONFIRMATION</h2>
+      <p class="rsvp-sub" data-i18n="rsvpDesc">Complete your pass details below to confirm via WhatsApp.</p>
+
+      <form id="rsvp-form" novalidate>
+        <!-- Mandatory Name Input -->
+        <div class="form-group">
+          <label for="guest-name" class="cool-label">
+            <span data-i18n="nameLabel">GUEST FULL NAME</span> <span class="req-badge" data-i18n="mustFill">* MUST FILL</span>
+          </label>
+          <div class="input-glow-wrap">
+            <input type="text" id="guest-name" placeholder="Enter your awesome name..." required />
+          </div>
+          <small id="name-error" class="error-msg"></small>
+        </div>
+
+        <!-- Note 1: Mandatory Attendance Option -->
+        <div class="form-group">
+          <label class="cool-label">
+            <span data-i18n="note1Label">NOTE 1: ATTENDANCE STATUS</span> <span class="req-badge" data-i18n="selectOne">* SELECT ONE</span>
+          </label>
+          <div class="radio-cards">
+            <label class="radio-card">
+              <input type="radio" name="attendance" value="Yes, I can attend the party" />
+              <div class="card-content">
+                <span class="check-icon">🎉</span>
+                <span data-i18n="optYes">Yes, I can attend the party</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="attendance" value="Sorry, I cannot attend the party" />
+              <div class="card-content">
+                <span class="check-icon">💌</span>
+                <span data-i18n="optNo">Sorry, I cannot attend the party</span>
+              </div>
+            </label>
+          </div>
+          <small id="att-error" class="error-msg"></small>
+        </div>
+
+        <!-- Note 2: Optional Additional Note -->
+        <div class="form-group">
+          <label for="additional-note" class="cool-label">
+            <span data-i18n="note2Label">NOTE 2: ADDITIONAL WISHES / MESSAGE</span> <span class="opt-badge" data-i18n="optional">(OPTIONAL)</span>
+          </label>
+          <div class="input-glow-wrap">
+            <textarea id="additional-note" rows="3" placeholder="Write birthday wishes, dietary notes, or arrival info..."></textarea>
+          </div>
+        </div>
+
+        <!-- Animated WhatsApp Submit Button -->
+        <button type="submit" id="whatsapp-btn" class="whatsapp-btn btn-animate">
+          <span class="btn-shine"></span>
+          <span class="wa-icon">💬</span>
+          <span data-i18n="sendRsvp">SEND RSVP TO WHATSAPP</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
